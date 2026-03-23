@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .carousel-viewport {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        input[name="slider"] {
+            display: none;
+        }
+
+        .slides-container {
+            display: flex;
+            width: 400%;
+            height: 100%;
+            transition: transform 0.8s ease-in-out;
+            animation: autoSlide 8s infinite;
+        }
+
+        .slide {
+            width: 25%;
+            transition: 0.6s;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-viewport:hover .slides-container {
+            animation-play-state: paused;
+        }
+
+        @keyframes autoSlide {
+
+            0%,
+            20% {
+                transform: translateX(0%);
+            }
+
+            25%,
+            45% {
+                transform: translateX(-25%);
+            }
+
+            50%,
+            70% {
+                transform: translateX(-50%);
+            }
+
+            75%,
+            95% {
+                transform: translateX(-75%);
+            }
+
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        #slide1:checked~.slides-container {
+            transform: translateX(0%);
+            animation: none;
+        }
+
+        #slide2:checked~.slides-container {
+            transform: translateX(-25%);
+            animation: none;
+        }
+
+        #slide3:checked~.slides-container {
+            transform: translateX(-50%);
+            animation: none;
+        }
+
+        #slide4:checked~.slides-container {
+            transform: translateX(-75%);
+            animation: none;
+        }
+
+        .manual-nav {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            width: 12px;
+            height: 12px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #fff;
+        }
+
+        #slide1:checked~.manual-nav label[for="slide1"],
+        #slide2:checked~.manual-nav label[for="slide2"],
+        #slide3:checked~.manual-nav label[for="slide3"],
+        #slide4:checked~.manual-nav label[for="slide4"] {
+            background: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .carousel-viewport {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel-viewport">
+        <input type="radio" name="slider" id="slide1">
+        <input type="radio" name="slider" id="slide2">
+        <input type="radio" name="slider" id="slide3">
+        <input type="radio" name="slider" id="slide4">
+
+        <div class="slides-container">
+            <div class="slide"><img src="vit-vellore.png" alt="Slide 1"></div>
+            <div class="slide"><img src="vit-chennai.jpg" alt="Slide 2"></div>
+            <div class="slide"><img src="vit-ap.jpeg" alt="Slide 3"></div>
+            <div class="slide"><img src="vit-bhopal.jpg" alt="Slide 4"></div>
+        </div>
+
+        <div class="manual-nav">
+            <label for="slide1" class="nav-btn"></label>
+            <label for="slide2" class="nav-btn"></label>
+            <label for="slide3" class="nav-btn"></label>
+            <label for="slide4" class="nav-btn"></label>
+        </div>
+    </div>
+</body>
+
+</html>

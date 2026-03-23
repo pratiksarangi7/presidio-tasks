@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal-checkbox {
+            display: none;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 1000;
+        }
+
+        .modal-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-checkbox:checked~.modal-overlay {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-checkbox:checked~.modal-overlay .modal-container {
+            transform: scale(1);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="modal-toggle" class="open-btn">Open Modal</label>
+
+    <input type="checkbox" id="modal-toggle" class="modal-checkbox">
+
+    <div class="modal-overlay">
+        <div class="modal-container">
+            <label for="modal-toggle" class="close-btn">&times;</label>
+            <h2>Checkbox Modal</h2>
+            <p>This modal is toggled using the :checked pseudo-class without any JavaScript.</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Only Complex Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: #f4f4f9;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #00d4ff;
+        }
+
+        /* Content Management Layer */
+        .content-wrapper {
+            position: relative;
+            margin-top: 60px;
+            height: calc(100vh - 60px);
+        }
+
+        /* Page Transitions and Hidden State */
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(20px);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            background: #f4f4f9;
+            padding: 2rem;
+        }
+
+        /* The Core Logic: :target */
+        .page:target {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            z-index: 10;
+        }
+
+        /* Default state: Show Home if no hash is present */
+        #home {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        /* Hide Home if any other section is targeted */
+        :target~#home:not(:target) {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Layout - CSS Grid */
+        .page-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+            }
+
+            .content-wrapper {
+                margin-top: 120px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">CSS_SIM</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="content-wrapper">
+
+        <section id="home" class="page">
+            <div class="page-content">
+                <h1>Welcome Home</h1>
+                <p>This entire experience is powered strictly by CSS. No JavaScript was used to handle this navigation.
+                </p>
+                <div class="grid-layout">
+                    <div class="card">Feature A</div>
+                    <div class="card">Feature B</div>
+                    <div class="card">Feature C</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="page">
+            <div class="page-content">
+                <h1>About Us</h1>
+                <p>Leveraging the <code>:target</code> pseudo-class allows us to create functional state transitions
+                    based on the URL fragment identifier.</p>
+            </div>
+        </section>
+
+        <section id="services" class="page">
+            <div class="page-content">
+                <h1>Our Services</h1>
+                <ul class="services-list">
+                    <li>Responsive Grid Design</li>
+                    <li>State Management via Selectors</li>
+                    <li>Smooth CSS Keyframe Animations</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="page">
+            <div class="page-content">
+                <h1>Contact</h1>
+                <p>Get in touch with us through this CSS-simulated contact section.</p>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

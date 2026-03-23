@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tabs-container {
+            max-width: 600px;
+            margin: 20px auto;
+            font-family: sans-serif;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        .tab-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .tab-list li {
+            margin-right: 5px;
+        }
+
+        .tab-list label {
+            display: block;
+            padding: 12px 24px;
+            cursor: pointer;
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+
+        .tab-list label:hover {
+            background: #eee;
+        }
+
+        .content-container {
+            position: relative;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-top: none;
+            padding: 20px 20px;
+            min-height: 150px;
+        }
+
+        .tab-content {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            transition: opacity 0.5s ease-in-out, transform 0.3s ease;
+            transform: translateY(10px);
+        }
+
+        #tab1:checked~.tab-list label[for="tab1"],
+        #tab2:checked~.tab-list label[for="tab2"],
+        #tab3:checked~.tab-list label[for="tab3"] {
+            background: #fff;
+            color: #007bff;
+            font-weight: bold;
+            padding-bottom: 14px;
+            margin-bottom: -2px;
+            border-bottom: 2px solid #fff;
+        }
+
+        #tab1:checked~.content-container #content1,
+        #tab2:checked~.content-container #content2,
+        #tab3:checked~.content-container #content3 {
+            opacity: 1;
+            visibility: visible;
+            top: 0;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tabs-container">
+        <input type="radio" name="tab-control" id="tab1" checked>
+        <input type="radio" name="tab-control" id="tab2">
+        <input type="radio" name="tab-control" id="tab3">
+
+        <ul class="tab-list">
+            <li><label for="tab1">Overview</label></li>
+            <li><label for="tab2">Topics</label></li>
+            <li><label for="tab3">Timeline</label></li>
+        </ul>
+
+        <div class="content-container">
+            <section id="content1" class="tab-content">
+                <h2>Project Overview</h2>
+                <p>This is a part of presidio's html css tasks</p>
+            </section>
+            <section id="content2" class="tab-content">
+                <h2>Key Topics</h2>
+                <p>HTML, CSS, JS, C# etc.</p>
+            </section>
+            <section id="content3" class="tab-content">
+                <h2>Timeline</h2>
+                <p>This spans over a period of 1 month</p>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

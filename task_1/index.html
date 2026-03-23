@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav {
+            margin: 0;
+            padding: 15px;
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #E7E7F3;
+        }
+
+        .logo {
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            display: flex;
+            list-style-type: none;
+            padding: 15px 15px;
+            gap: 20px;
+        }
+
+        main {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        main img {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            main {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            main img {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        footer {
+            background-color: #E7E7F3;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <span class="logo">Sarangi Solutions</span>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Services</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div>
+            <h1>Hi, I am Pratik</h1>
+            <p>A full stack developer proficient in the in technologies like HTML, CSS, JavaScript, NodeJS, Express,
+                MongoDB, PostgreSQL </p>
+            <p>I also have some experience working on cloud platforms, particularly AWS.</p>
+        </div>
+        <img src="dev-img.jpg" alt="">
+    </main>
+    <footer>
+        <p>&copy; 2026 Sarangi Solutions. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

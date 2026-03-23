@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f4f7f6;
+        }
+
+        .grid-container {
+            display: grid;
+            min-height: 100vh;
+            grid-template-columns: 240px 1fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas:
+                "header header"
+                "sidebar content"
+                "footer footer";
+        }
+
+        .main-header {
+            grid-area: header;
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background: #34495e;
+            color: #ecf0f1;
+            padding: 2rem;
+        }
+
+        .side-nav {
+            list-style: none;
+            position: sticky;
+            top: 80px;
+        }
+
+        .content {
+            grid-area: content;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            flex: 1 1 200px;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .overlap-box {
+            position: absolute;
+            top: 100px;
+            right: -20px;
+            background: #e74c3c;
+            color: white;
+            padding: 1.5rem;
+            width: 150px;
+            z-index: 10;
+            transform: rotate(5deg);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-footer {
+            grid-area: footer;
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr auto;
+                grid-template-areas:
+                    "header"
+                    "content"
+                    "sidebar"
+                    "footer";
+            }
+
+            .overlap-box {
+                position: static;
+                width: 100%;
+                margin-top: 1rem;
+                transform: none;
+            }
+
+            .sidebar {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <header class="main-header">
+            <div class="logo">Presidio solutions</div>
+            <nav class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Projects</a>
+                <a href="#">Contact</a>
+            </nav>
+        </header>
+
+        <aside class="sidebar">
+            <ul class="side-nav">
+                <li>Dashboard</li>
+                <li>Analytics</li>
+                <li>Settings</li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section class="intro">
+                <h1>Main Dashboard</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa tempora amet molestiae nihil, sunt
+                    soluta labore expedita saepe mollitia atque?</p>
+            </section>
+
+            <div class="card-container">
+                <div class="card">Card 1</div>
+                <div class="card">Card 2</div>
+                <div class="card">Card 3</div>
+            </div>
+
+            <div class="overlap-box">
+                <span>Featured Info</span>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2026 Presidio Solutions</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>

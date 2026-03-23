@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Kalam</title>
+    <style>
+        html,
+        body {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            margin: 20 px;
+            border-radius: 5px;
+            border: 2px solid black;
+            max-width: 700px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                margin: 20 px;
+                border-radius: 5px;
+                border: 2px solid black;
+                max-width: 700px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+                margin: 20 px;
+                border-radius: 5px;
+                border: 2px solid black;
+                max-width: 300px;
+            }
+        }
+
+        .card div {
+            max-width: 400px;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <img src="dr_abdul.jpg" alt="Abdul Kalam's image">
+        <div>
+            <h1>Dr A.P.J. Abdul Kalam</h1>
+            <p>Dr. APJ Abdul Kalam, the "People's President" and "Missile Man of India," was a visionary scientist and
+                the
+                11th President of India. Born in Rameswaram, his journey from selling newspapers to leading India's
+                premier
+                space and defense programs—including the development of Agni and Prithvi missiles—remains an
+                inspiration.</p>
+        </div>
+    </div>
+</body>
+
+</html>
