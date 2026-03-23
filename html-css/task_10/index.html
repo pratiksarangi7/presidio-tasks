@@ -49,14 +49,12 @@
             color: #00d4ff;
         }
 
-        /* Content Management Layer */
         .content-wrapper {
             position: relative;
             margin-top: 60px;
             height: calc(100vh - 60px);
         }
 
-        /* Page Transitions and Hidden State */
         .page {
             position: absolute;
             top: 0;
@@ -71,7 +69,6 @@
             padding: 2rem;
         }
 
-        /* The Core Logic: :target */
         .page:target {
             opacity: 1;
             visibility: visible;
@@ -79,20 +76,17 @@
             z-index: 10;
         }
 
-        /* Default state: Show Home if no hash is present */
         #home {
             opacity: 1;
             visibility: visible;
             transform: translateX(0);
         }
 
-        /* Hide Home if any other section is targeted */
         :target~#home:not(:target) {
             opacity: 0;
             visibility: hidden;
         }
 
-        /* Layout - CSS Grid */
         .page-content {
             max-width: 1000px;
             margin: 0 auto;
@@ -113,7 +107,6 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -124,7 +117,6 @@
             }
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;

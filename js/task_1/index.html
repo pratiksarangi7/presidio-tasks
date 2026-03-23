@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        li {
+            margin-bottom: 5px;
+            list-style: none;
+        }
+
+        span {
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>To do list</h1>
+    <div>
+        <input type="text" id="inp" placeholder="enter new task">
+        <button id="btn">Add task</button>
+        <ul id="list"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
