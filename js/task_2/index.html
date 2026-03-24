@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .calc-base {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            width: 700px;
+            gap: 10px 20px;
+        }
+
+        .display {
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="display" id="display">0</div>
+    <div class="calc-base">
+        <button onclick="appendToExp('0')">0</button>
+        <button onclick="appendToExp('1')">1</button>
+        <button onclick="appendToExp('2')">2</button>
+        <button onclick="appendToExp('3')">3</button>
+        <button onclick="appendToExp('4')">4</button>
+        <button onclick="appendToExp('5')">5</button>
+        <button onclick="appendToExp('6')">6</button>
+        <button onclick="appendToExp('7')">7</button>
+        <button onclick="appendToExp('8')">8</button>
+        <button onclick="appendToExp('0')">9</button>
+        <button onclick="appendToExp('+')">+</button>
+        <button onclick="appendToExp('-')">-</button>
+        <button onclick="appendToExp('*')">*</button>
+        <button onclick="appendToExp('/')">/</button>
+        <button onclick="compute()">=</button>
+    </div>
+    <button onclick="clearLastItem()">DEL</button>
+    <script src="script.js"></script>
+</body>
+
+</html>
