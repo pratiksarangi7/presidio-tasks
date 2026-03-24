@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card img {
+            border-radius: 5px;
+        }
+
+        .card img:hover {
+            transform: translateY(-5px);
+        }
+
+        .modal {
+            visibility: hidden;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            line-height: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card" onclick="openModal('https://picsum.photos/seed/picsum1/500/500')">
+        <img src="https://picsum.photos/seed/picsum1/300/300" alt="">
+    </div>
+    <div class="card" onclick="openModal('https://picsum.photos/seed/picsum2/500/500')"><img
+            src="https://picsum.photos/seed/picsum2/300/300" alt=""></div>
+    <div class="card" onclick="openModal('https://picsum.photos/seed/picsum3/500/500')"><img
+            src="https://picsum.photos/seed/picsum3/300/300" alt=""></div>
+    <div class="modal" id="modal">
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
