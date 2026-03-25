@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #draggable-list {
+            list-style: none;
+            padding: 0;
+            width: 300px;
+        }
+
+        .list-item {
+            padding: 15px;
+            margin-bottom: 8px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: grab;
+            transition: background-color 0.2s;
+        }
+
+        .list-item.dragging {
+            opacity: 0.5;
+            border: 2px dashed #4a90e2;
+        }
+
+        .list-item.drag-over {
+            border-top: 3px solid #4a90e2;
+            background-color: #f0f7ff;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="draggable-list">
+        <li draggable="true" class="list-item">Item 1</li>
+        <li draggable="true" class="list-item">Item 2</li>
+        <li draggable="true" class="list-item">Item 3</li>
+        <li draggable="true" class="list-item">Item 4</li>
+    </ul>
+    <script src="script.js"></script>
+</body>
+
+</html>
